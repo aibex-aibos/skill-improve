@@ -36,6 +36,7 @@ Welcher Weg gilt, sagt der Satz. `/improve` ohne Text: frag mit dem Auswahlwerkz
 | Eingang | `<vault-root>/@/@!Improve/`. Er ist verborgen: AIBOS lädt ihn nie in den Kontext, du liest ihn gezielt. Zustände: *vorhanden* (mit mindestens einem Wunsch), *noch leer* (Ordner ohne Wunsch), *fehlt* (kein Ordner) |
 | Wunsch | eine Datei im Eingang mit `type: improvement` im Frontmatter. Andere Dateien lässt du liegen |
 | Baustein | ein Paket (`package`) oder ein Element darin (`element`: Skill, Assistent, Wissen), auch ein lokaler Blueprint |
+| Sync anbieten | nur, wenn der Block `<aibos-workspace>` deines Master-Kontexts `sync: auto` oder `sync: manual` nennt (Spec 02 von AIBOS, *Regel des Workspace*; bei einem Cloud-Drive oder ohne Block nie) und der Name des Projekts der Session nicht `P-Probe-` enthält. Dann fragst du, ob du `/aibos-sync` für die Vault-Root aufrufen sollst, und tust es nur nach Ja. In einem Testprojekt bietest du keinen Sync an und kündigst keinen an |
 
 ## Baustein bestimmen
 
@@ -81,7 +82,7 @@ project: <Projekt der Session, relativ zur Vault-Root; an der Vault-Root .>
 2. **Vault-Root** bestimmen (*Begriffe*).
 3. **Zeigen:** die vollständige Datei und den Zielpfad `<vault-root>/@/@!Improve/<dateiname>`. Liegt die Vault-Root außerhalb des Projekts der Session, sag dazu: „Claude Code kann gleich vor dem Schreiben um eine Freigabe für die Vault-Root bitten; das ist eine Frage des Hosts, zusätzlich zu meiner.“ Dann frag: ablegen (Empfohlen), korrigieren oder verwerfen.
 4. **Ablegen** nach Ja: `@/@!Improve/` anlegen, wenn es fehlt, dann die Datei schreiben. Committen tust du nicht.
-5. **Sicherung:** Sag, dass der Wunsch erst mit dem Sync der Vault-Root gesichert ist und erst dann den Maintainer erreicht. Steht in `<vault-root>/.aibos/config.yaml` ein Schlüssel `sync:` und enthält der Name des Projekts der Session nicht `P-Probe-`, frag danach, ob du `/aibos-sync` für die Vault-Root aufrufen sollst; nur nach Ja. In einem Testprojekt bietest du keinen Sync an und kündigst keinen an.
+5. **Sicherung:** Sag, dass der Wunsch erst mit dem Sync der Vault-Root gesichert ist und erst dann den Maintainer erreicht. Danach bietest du den Sync an (*Sync anbieten*).
 
 ## Weg 2 — IMPROVED
 
@@ -133,7 +134,7 @@ Lies die gefundene Datei mit Read und halte dich beim Ablegen genau an sie.
 
 ### Ablauf
 
-1. **Sync vorher:** Hat die Vault-Root `sync:` in ihrer `.aibos/config.yaml`, frag, ob du zuerst `/aibos-sync` für die Vault-Root aufrufen sollst, damit Wünsche anderer Rechner ankommen. Nur nach Ja.
+1. **Sync vorher:** Biete den Sync an (*Sync anbieten*), damit Wünsche anderer Rechner ankommen.
 2. **Wünsche finden:** alle Dateien im Eingang mit `type: improvement` und `package: <paket>`. Gibt es keine, sag das (Zustand des Eingangs nennen) und beende.
 3. **Hinweise je Wunsch** (du verwirfst nichts):
    - **Doppelt:** Such im Memo-Ordner, den die Sammelregel nennt, mit `grep -ril` nach zwei bis drei Schlüsselwörtern des Wunsches und lies die Treffer über den vollen Pfad. Deckt sich ein Memo inhaltlich, lautet der Hinweis „deckt sich mit Memo NN“.
