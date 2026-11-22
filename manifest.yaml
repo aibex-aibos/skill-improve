@@ -1,5 +1,5 @@
 name: skill-improve
-version: 0.1.0
+version: 0.1.0-rc1
 type: skill
 description: Verbesserungswünsche an Wissen, Skills und Assistenten erfassen, im IMPROVED-Modus erproben und beim Maintainer ins Konzeptprojekt sammeln
 requires:
