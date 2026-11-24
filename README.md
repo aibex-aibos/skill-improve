@@ -1,14 +1,16 @@
 # skill-improve
 
-Paket von AIbex AIBOS mit dem Skill `improve`, Version 0.1.0. Er gibt jedem Baustein (Wissen, Skill, Assistent) einen Kanal für Verbesserungswünsche, ohne dass der Baustein dafür eigene Skills braucht.
+Paket von AIbex AIBOS mit dem Skill `improve`, Version 0.2.0. Er gibt jedem Baustein (Wissen, Skill, Assistent) einen Kanal für Verbesserungswünsche, ohne dass der Baustein dafür eigene Skills braucht.
 
-- **Erfassen:** Ein Anwender hält einen Wunsch fest. Er landet im verborgenen Eingang `<vault-root>/@/@!Improve/` und ändert nichts an der laufenden Arbeit (Modus RELEASED).
+- **Erfassen:** Ein Anwender hält einen Wunsch fest. Er landet als Ticket mit `type: improvement` im verborgenen Postfach `<vault-root>/@/@!Ticket/` und ändert nichts an der laufenden Arbeit (Modus RELEASED).
 - **IMPROVED:** Wer will, schaltet die Wünsche zu einem Baustein für eine Session ein. Sie wirken dann experimentell mit, erkennbar am Zeichen 🏗️ im Prefix des Assistenten. Eine neue Session ist wieder RELEASED.
 - **Sammeln:** Der Maintainer bringt die Wünsche zu seinem Paket ins Konzeptprojekt, nach dessen Sammelregel, und löscht sie danach im Eingang.
 
 ## Voraussetzung
 
-AIBOS 0.7, Vault gebunden (A/W).
+AIBOS 0.7.1, Vault gebunden (A/W). `improve` findet Tickets mit `aibos --ticket`; nach einer Zusammenfassung erinnert die Zeile `AIBOS-TICKET` daran, Wünsche im Modus IMPROVED neu zu lesen.
+
+**Übergang:** Bis AIBOS 0.8 liest `improve` auch den alten Eingang `<vault-root>/@/@!Improve/` von `skill-improve` 0.1.0, schreibt aber nur nach `@/@!Ticket/`. Die Dateien im alten Eingang verschiebt niemand automatisch; `improve` weist auf den Umzug hin.
 
 ```bash
 aibos --fetch skill-improve
