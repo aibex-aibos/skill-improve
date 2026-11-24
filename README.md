@@ -12,6 +12,8 @@ AIBOS 0.7.1, Vault gebunden (A/W). `improve` findet Tickets mit `aibos --ticket`
 
 **Übergang:** Bis AIBOS 0.8 liest `improve` auch den alten Eingang `<vault-root>/@/@!Improve/` von `skill-improve` 0.1.0, schreibt aber nur nach `@/@!Ticket/`. Die Dateien im alten Eingang verschiebt niemand automatisch; `improve` weist auf den Umzug hin.
 
+**Freigaben des Hosts:** AIBOS gibt `aibos --ticket` und das Lesen einer Datei im Postfach ohne Rückfrage frei. Für das Schreiben ins Postfach und für das Auflisten des Postfachs (die vollen Dateinamen) fragt Claude Code einmal nach, weil das Postfach an der Vault-Root liegt.
+
 ```bash
 aibos --fetch skill-improve
 ```
