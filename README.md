@@ -1,6 +1,6 @@
 # skill-improve
 
-Paket von AIbex AIBOS mit dem Skill `improve`, Version 0.2.0. Er gibt jedem Baustein (Wissen, Skill, Assistent) einen Kanal für Verbesserungswünsche, ohne dass der Baustein dafür eigene Skills braucht.
+Paket von AIbex AIBOS mit dem Skill `improve`, Version 0.2.1. Er gibt jedem Baustein (Wissen, Skill, Assistent) einen Kanal für Verbesserungswünsche, ohne dass der Baustein dafür eigene Skills braucht.
 
 - **Erfassen:** Ein Anwender hält einen Wunsch fest. Er landet als Ticket mit `type: improvement` im verborgenen Postfach `<vault-root>/@/@!Ticket/` und ändert nichts an der laufenden Arbeit (Modus RELEASED).
 - **IMPROVED:** Wer will, schaltet die Wünsche zu einem Baustein für eine Session ein. Sie wirken dann experimentell mit, erkennbar am Zeichen 🏗️ im Prefix des Assistenten. Eine neue Session ist wieder RELEASED.
@@ -12,7 +12,7 @@ AIBOS 0.7.1, Vault gebunden (A/W). `improve` findet Tickets mit `aibos --ticket`
 
 **Übergang:** Bis AIBOS 0.8 liest `improve` auch den alten Eingang `<vault-root>/@/@!Improve/` von `skill-improve` 0.1.0, schreibt aber nur nach `@/@!Ticket/`. Die Dateien im alten Eingang verschiebt niemand automatisch; `improve` weist auf den Umzug hin.
 
-**Freigaben des Hosts:** AIBOS gibt `aibos --ticket` und das Lesen einer Datei im Postfach ohne Rückfrage frei. Für das Schreiben ins Postfach und für das Auflisten des Postfachs (die vollen Dateinamen) fragt Claude Code einmal nach, weil das Postfach an der Vault-Root liegt.
+**Freigaben des Hosts:** AIBOS gibt `aibos --ticket` und das Lesen einer Datei im Postfach ohne Rückfrage frei. Für das Schreiben ins Postfach fragt Claude Code einmal nach, weil das Postfach an der Vault-Root liegt. Ab AIBOS 0.7.2 holt `improve` die Pfade der Tickets mit `aibos --ticket --paths`; mit AIBOS 0.7.1 listet es das Postfach mit `ls` auf, und dafür fragt Claude Code ebenfalls einmal nach.
 
 ```bash
 aibos --fetch skill-improve
